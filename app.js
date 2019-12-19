@@ -5,13 +5,13 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-const log =[];
+const logs =[];
 const port = process.env.PORT || 8001
 
 app.get('/', (req, res) => {
   return res.status(200).json({
     message: 'OK',
-    totalLogs: log.length
+    totalLogs: logs.length
   })
 });
 
@@ -26,7 +26,7 @@ app.post('/redirect', (req, res) => {
       responsecode: '99'
     })
   }
-  log.push(data);
+  logs.push(data);
   return res.status(200).json({
     statusCode: 200,
     message: 'OK',
