@@ -20,6 +20,7 @@ app.post('/redirect', (req, res) => {
   const data = req.body.data;
   if(!data){
     return res.status(400).json({
+      Status: false,
       statusCode: 400,
       message: 'bad request',
       description: 'You did not send the data',
@@ -28,6 +29,7 @@ app.post('/redirect', (req, res) => {
   }
   logs.push(data);
   return res.status(200).json({
+    Status: true,
     statusCode: 200,
     message: 'OK',
     description: 'Message successfully received!',
